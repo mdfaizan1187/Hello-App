@@ -1,26 +1,28 @@
 public class HelloApp {
+
     public static void main(String[] args) {
 
-        String result;
-
-        // Check if no arguments are provided
+        // Case 1: No arguments
         if (args.length == 0) {
-            result = "World";
-        } else {
-            StringBuilder names = new StringBuilder();
-
-            // Enhanced for loop
-            for (String name : args) {
-                if (names.length() > 0) {
-                    names.append(", ");
-                }
-                names.append(name);
-            }
-
-            result = names.toString();
+            System.out.println("Hello, World!");
+            return;
         }
 
-        // Display greeting
-        System.out.println("Hello, " + result + "!");
+        // Case 2: Arguments provided
+        StringBuilder nameBuilder = new StringBuilder();
+
+        // Enhanced for loop
+        for (String name : args) {
+            nameBuilder.append(name).append(", ");
+        }
+
+        // Remove trailing ", "
+        String names = "";
+        if (nameBuilder.length() > 0) {
+            names = nameBuilder.substring(0, nameBuilder.length() - 2);
+        }
+
+        // Final output
+        System.out.println("Hello, " + names + "!");
     }
 }
